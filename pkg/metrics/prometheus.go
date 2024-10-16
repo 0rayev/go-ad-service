@@ -17,7 +17,7 @@ var (
 			Name: "http_requests_total",
 			Help: "Total number of HTTP requests",
 		},
-		[]string{"method", "endpoint"},
+		[]string{"method", "endpoint", "status_code"},
 	)
 
 	// Histogram to track request durations in seconds, labeled by method and endpoint
@@ -27,7 +27,7 @@ var (
 			Help:    "Duration of HTTP requests in seconds",
 			Buckets: prometheus.DefBuckets,
 		},
-		[]string{"method", "endpoint"},
+		[]string{"method", "endpoint", "status_code"},
 	)
 )
 
@@ -50,11 +50,14 @@ func MetricsMiddlewareGin() gin.HandlerFunc {
 		// Calculate the duration of the request
 		duration := time.Since(startTime).Seconds()
 
+		// Get the response status code
+		statusCode := c.Writer.Status()
+
 		// Increment the request counter with labels
-		RequestCounter.WithLabelValues(c.Request.Method, c.FullPath()).Inc()
+		RequestCounter.WithLabelValues(c.Request.Method, c.FullPath(), http.StatusText(statusCode)).Inc()
 
 		// Observe the duration of the request
-		RequestDuration.WithLabelValues(c.Request.Method, c.FullPath()).Observe(duration)
+		RequestDuration.WithLabelValues(c.Request.Method, c.FullPath(), http.StatusText(statusCode)).Observe(duration)
 	}
 }
 
