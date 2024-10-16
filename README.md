@@ -97,6 +97,7 @@ Retrieve all ads from the database with optional pagination and sorting.
 
   - 400 Bad Request: If any of the query parameters are invalid, the following error responses will be returned:
     - Example response body:
+      ```json
       {
         "error": "Invalid page value. Must be a positive integer."
       }
@@ -108,12 +109,15 @@ Retrieve all ads from the database with optional pagination and sorting.
       {
         "error": "Invalid order value. Must be either 'asc' or 'desc'."
       }
+      ```
 
   - 500 Internal Server Error: If an error occurs while fetching the ads, the following response is returned:
     - Example response body:
+      ```json
       {
         "error": "Failed to fetch ads"
       }
+      ```
 
 ### Get Ad by ID
 
@@ -126,6 +130,7 @@ Retrieve a specific ad from the database by its ID.
 - Response:
   - 200 OK: Returns the ad data.
     - Example response body:
+      ```json
       {
         "id": 1,
         "title": "Ad Title",
@@ -134,21 +139,28 @@ Retrieve a specific ad from the database by its ID.
         "created_at": "2024-10-14T12:34:56Z",
         "is_active": true
       }
+      ```
   - 400 Bad Request: If the provided id is not valid. The following error response will be returned:
     - Example response body:
+      ```json
       {
         "error": "Invalid ID"
-      }    
+      }
+      ```    
   - 404 Not Found: If the ad with the given id does not exist in the database.
     - Example response body:
+      ```json
       {
         "error": "Ad not found"
       }
+      ```
   - 500 Internal Server Error: If there is an internal error fetching the ad from the database.
     - Example response body:
+      ```json
       {
         "error": "Failed to fetch ad by ID"
       }
+      ```
 
 
 ### Create Ad
@@ -166,13 +178,16 @@ Add new data to the database.
 - Response:
   - 201 Created: Returns the created ad object, including the automatically assigned id and created_at timestamp.
     - Example Request Body:
+      ```json
       {
         "title": "Brand New Laptop",
         "description": "High-performance laptop for sale. Barely used.",
         "price": 1200.00,
         "is_active": true
       }
+      ```
     - Example Response body:
+      ```json
       {
         "id": 1,
         "title": "Brand New Laptop",
@@ -181,8 +196,10 @@ Add new data to the database.
         "created_at": "2024-10-14T12:34:56Z",
         "is_active": true
       }
+      ```
   - 400 Bad Request: If the request body is invalid or missing required fields, the following error responses will be returned:
     - Example response body:
+      ```json
       {
         "error": "Title and description are required"
       }
@@ -194,11 +211,14 @@ Add new data to the database.
       {
         "error": "Invalid request body"
       }
+      ```
   - 500 Internal Server Error: If there is an error creating the ad in the database.
     - Example response body:
+      ```json
       {
         "error": "Failed to add ad"
       }
+      ```
 
 ### Delete Ad:
 
@@ -213,25 +233,32 @@ Remove data from the database based on the provided ID.
 - Responses:
   - 200 OK: If the ad is successfully deleted.
     - Example response body:
+      ```json
       {
         "message": "Ad deleted successfully"
       }
+      ```
   - 400 Bad Request: If the provided ID is invalid.
     - Example response body:
+      ```json
       {
         "error": "Invalid ID"
       }
+      ```
   - 404 Not Found: If the ad does not exist.
     - Example response body:
+      ```json
       {
         "error": "Ad not found"
       }
+      ```
   - 500 Internal Server Error: If there is an internal error while attempting to delete the ad from the database.
     - Example response body:
+      ```json
       {
         "error": "Failed to delete ad"
       }
-
+      ```
 ### Update Ad:
 
 - Method: PUT
@@ -244,31 +271,41 @@ Update an existing ad by its ID.
 - Response:
   - 200 OK: If the request is successful.
     - Example Request body:
+      ```json
       {
         "title": "New Ad Title",
         "description": "Updated description of the ad",
         "price": 100.00,
         "is_active": true
       }
+      ```
     - Example Response:
+      ```json
       {
         "message": "Ad updated"
       }
+      ```
   - 400 Bad Request: If the request body or ID is invalid, if required fields are missing.
     - Example Response: 
+      ```json
       {
         "error": "Invalid request body"
       }
+      ```
   - 404 Not Found: If the provided ID does not exist in the database.
     - Example Response:
+      ```json
       {
           "error": "Ad not found"
       }
+      ```
   - 500 Internal Server Error: If there is an internal server error.
     - Example response body:
+      ```json
       {
         "error": "Failed to update ad"
       }
+      ```
 
 ## Database Migration
 
