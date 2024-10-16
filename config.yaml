@@ -1,0 +1,19 @@
+mysql:
+  user: root
+  password: rootpassword
+  host: db
+  port: "3306"
+  database: ad_service_db
+
+redis:
+  host: "redis"
+  port: "6379"
+  password: ""  # No password set
+  db: 0  # Default DB
+
+server:
+  port: "8080"
+
+prometheus:
+  metrics_endpoint: /metrics
+  port: 9090

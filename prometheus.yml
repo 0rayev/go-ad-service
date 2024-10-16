@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s  # How frequently to scrape targets
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']  # Prometheus server itself
+
+  - job_name: 'ad-service'
+    static_configs:
+      - targets: ['app:8080']  # Name of service and port exposed in docker-compose
