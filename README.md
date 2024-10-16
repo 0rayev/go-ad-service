@@ -40,12 +40,12 @@ Before running this application, ensure that you have the following prerequisite
 
 1. Clone the repository:
   ```bash
-    git clone https://github.com/0rayev/GoAdServer.git
+    git clone https://github.com/0rayev/go-ad-service.git
   ```
 
 2. Navigate to the project directory:
   ```
-    cd ad-service
+    cd go-ad-service
   ```
 3. Build the Docker image:
   ```
