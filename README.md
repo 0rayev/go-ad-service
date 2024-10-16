@@ -302,3 +302,4 @@ Prometheus metrics are defined in the prometheus.go file under metrics/. You can
 ## Configuration
 
 Configuration is handled using Viper. You can update the configuration by modifying the config.yaml file.
+# go-ad-service
