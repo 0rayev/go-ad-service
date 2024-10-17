@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	// Counter for total HTTP requests received, labeled by method and endpoint
+	// Counter for total HTTP requests received, labeled by method, endpoint and status code
 	RequestCounter = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "http_requests_total",
@@ -20,7 +20,7 @@ var (
 		[]string{"method", "endpoint", "status_code"},
 	)
 
-	// Histogram to track request durations in seconds, labeled by method and endpoint
+	// Histogram to track request durations in seconds, labeled by method, endpoint and status code
 	RequestDuration = prometheus.NewHistogramVec(
 		prometheus.HistogramOpts{
 			Name:    "http_request_duration_seconds",

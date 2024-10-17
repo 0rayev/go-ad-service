@@ -7,11 +7,11 @@ import (
 )
 
 type Config struct {
-	MySQL      MySQLConfig
-	Redis      RedisConfig
-	Server     ServerConfig
-	Tracing    TracingConfig
-	Prometheus PrometheusConfig
+	MySQL   MySQLConfig
+	Redis   RedisConfig
+	Server  ServerConfig
+	Tracing TracingConfig
+	// Prometheus PrometheusConfig
 }
 
 type MySQLConfig struct {
@@ -37,10 +37,10 @@ type TracingConfig struct {
 	JaegerEndpoint string
 }
 
-type PrometheusConfig struct {
-	MetricsEndpoint string
-	Port            int
-}
+// type PrometheusConfig struct {
+// 	MetricsEndpoint string
+// 	Port            int
+// }
 
 // LoadConfig reads configuration from file or environment variables
 func LoadConfig() (*Config, error) {

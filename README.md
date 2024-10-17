@@ -330,7 +330,7 @@ Caching is implemented using Redis to improve the performance and scalability of
 
 ## OpenTelemetry Tracing Setup
 
-The tracing setup is defined in the tracing.go file under pkg/tracing/. In this project, the tracing system uses the stdout exporter, which prints trace information to the console in a human-readable format.
+This project implements tracing using OpenTelemetry, specifically configured for Jaeger. The tracing setup is defined in the tracing.go file located in the pkg/tracing/ directory. The tracing system utilizes an OTLP exporter via HTTP to send traces to the Jaeger endpoint specified in the configuration file.
 
 ## Prometheus Metrics
 

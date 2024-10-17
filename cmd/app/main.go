@@ -35,7 +35,7 @@ func main() {
 	metrics.InitMetrics()
 
 	// Initialize OpenTelemetry tracing
-	cleanup := tracing.InitTracer()
+	cleanup := tracing.InitTracer(cfg.Tracing)
 	defer cleanup()
 
 	// Set up Gin router
