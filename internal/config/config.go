@@ -47,7 +47,6 @@ func LoadConfig() (*Config, error) {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
-	viper.AutomaticEnv() // Read from environment variables if available
 
 	// Read the config file
 	err := viper.ReadInConfig()

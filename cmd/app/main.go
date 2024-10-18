@@ -27,9 +27,14 @@ func main() {
 	}
 
 	// Initialize repository, service, and handler
-	repo := ad.Repository{DB: db}
-	service := &ad.AdService{Repo: &repo}
-	handler := ad.NewHandler(service)
+	// repo := ad.Repository{DB: db}
+	// service := &ad.AdService{Repo: &repo}
+	// handler := ad.NewHandler(service)
+
+	// Initialize repository, service, and handler
+	repo := &ad.Repository{DB: db}
+	service := &ad.AdService{Repo: repo}
+	handler := &ad.Handler{Service: service}
 
 	// Initialize Prometheus metrics
 	metrics.InitMetrics()

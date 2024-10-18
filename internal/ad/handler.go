@@ -22,9 +22,9 @@ type Handler struct {
 }
 
 // NewHandler is a constructor for Handler
-func NewHandler(service *AdService) *Handler {
-	return &Handler{Service: service}
-}
+// func NewHandler(service *AdService) *Handler {
+// 	return &Handler{Service: service}
+// }
 
 // GetAdByID handles fetching a single ad by its ID, with tracing
 func (h *Handler) GetAdByID(c *gin.Context) {
